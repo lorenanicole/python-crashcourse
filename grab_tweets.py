@@ -1,10 +1,16 @@
+
+# /usr/bin/python
+
 import requests
 from requests_oauthlib import OAuth1
 import json
 from pprint import pprint
-import base64
-import pylab
+# import base64
+# import pylab
 import nltk
+# import codecs
+
+# reader = codecs.getreader("utf-8")
 
 twitter_api = "https://api.twitter.com/1.1/"
 
@@ -16,7 +22,7 @@ oauth_secret = "FILL ME IN"
 def get_twitter_client(oauth_token, oauth_secret):
 	"""
 	param: oauth_secret - oauth secret from twitter
-	param: oauth_secret - oauth_token from twitter
+	param: oauth_token - oauth_token from twitter
 	return: an instance of OAuth
 	"""
 	return OAuth1(CONSUMER_KEY,
@@ -31,7 +37,7 @@ def get_timeline(twitter_client):
 	return: dict of twitter user's home timeline
 	"""
 	response = requests.get(twitter_api + "statuses/home_timeline.json", auth=twitter_client)
-	return json.loads(response.content)
+	return response.json()
 
 def post_tweet(twitter_client, tweet):
 	"""
@@ -41,7 +47,7 @@ def post_tweet(twitter_client, tweet):
 	return: The Twitter API response as well as the http status code
 	"""
 	response = requests.post(twitter_api + "statuses/update.json", data={"status": tweet}, auth=twitter_client)
-	return json.loads(response.content), response.status_code
+	return response.json(), response.status_code
 
 def cowsay(text):
 	"""
@@ -49,7 +55,7 @@ def cowsay(text):
 	"""
 	headers = {'X-Mashape-Key' : 'DSIsxD7caXmshIShinSXM2rDBkkrp1sowCpjsnJnouVH8ptZDZ'}
 	response = requests.get("https://ascii.p.mashape.com/cowsay?style=default&text=" + text.encode("UTF-8"), headers=headers)
-	return base64.b64decode(json.loads(response.content).get("contents").get("cowsay"))
+	return base64.b64decode(response.json().get("contents").get("cowsay"))
 
 def ascii_image(text):
 	"""
@@ -57,48 +63,30 @@ def ascii_image(text):
 	"""
 	headers = {'X-Mashape-Key' : 'DSIsxD7caXmshIShinSXM2rDBkkrp1sowCpjsnJnouVH8ptZDZ'}
 	response = requests.post("https://ascii.p.mashape.com/image2ascii", data = {"format":"color"}, headers=headers)
-	return base64.b64decode(json.loads(response.content).get("contents").get("cowsay"))
+	return base64.b64decode(response.json().get("contents").get("cowsay"))
 
 
 if __name__ == "__main__":
 
 	twitter_client = get_twitter_client(oauth_token, oauth_secret)
 
-	# print cowsay("Give me something to tweet ")
-	# tweet = raw_input(" ")
-	# response, response_code = post_tweet(twitter_client, tweet)
-
-	# if response == 200:
-
-
-
 	timeline = get_timeline(twitter_client)
 
-	# for tweet in get_timeline(twitter_client):
-	# 	print "\n"
-	# 	screen_name = tweet.get("user").get("screen_name")
-	# 	print screen_name + "says:"
-	# 	tweet_text = tweet.get("text").replace (" ", "+")
-	# 	print base64.b64decode(json.loads(requests.get("https://ascii.p.mashape.com/cowsay?style=default&text=" + tweet_text.encode("UTF-8"), headers=headers).content)["contents"]["cowsay"])
-	# 	print "\n"
-	# 	print "================================================"
+	for tweet in timeline:
+		print("\n")
+		screen_name = tweet.get("user").get("screen_name")
+		print(screen_name, " says: ", tweet.get("text"))
+		# tweet_text = tweet.get("text").replace (" ", "+")
+		print("================================================")
 
 
 	words = {}
 
 	for tweet in timeline:
-		# if "the" in tweet.get("text"):
-		# 	pprint(tweet)
-		# print twitter.keys()
 		text = tweet.get("text").replace(",","").replace(":","").replace(".","").split(" ")
-		for word in text:
+		for word in text:  # idea: use nltk to filter out stop words
 			if words.get(word, 0):
 				words[word] += 1
 			else:
-				words[word] = 1
+				words[word] = 1  # histogram of words seen
 
-	words = {word.lower(): count for word, count in words.iteritems() if word and word not in nltk.corpus.stopwords.words('english')}
-
-	pylab.pie(words.values()[:10], labels=words.keys()[:10], shadow=True)
-
-	pylab.show()
