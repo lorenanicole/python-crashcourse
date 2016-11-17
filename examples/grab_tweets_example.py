@@ -3,8 +3,6 @@
 
 import requests
 from requests_oauthlib import OAuth1
-import json
-from pprint import pprint
 # import base64
 # import pylab
 import nltk
@@ -48,23 +46,6 @@ def post_tweet(twitter_client, tweet):
 	"""
 	response = requests.post(twitter_api + "statuses/update.json", data={"status": tweet}, auth=twitter_client)
 	return response.json(), response.status_code
-
-def cowsay(text):
-	"""
-	Cow ASCII art. I mean. Win win :-).
-	"""
-	headers = {'X-Mashape-Key' : 'DSIsxD7caXmshIShinSXM2rDBkkrp1sowCpjsnJnouVH8ptZDZ'}
-	response = requests.get("https://ascii.p.mashape.com/cowsay?style=default&text=" + text.encode("UTF-8"), headers=headers)
-	return base64.b64decode(response.json().get("contents").get("cowsay"))
-
-def ascii_image(text):
-	"""
-	ASCII art. YAY =^.^=!!
-	"""
-	headers = {'X-Mashape-Key' : 'DSIsxD7caXmshIShinSXM2rDBkkrp1sowCpjsnJnouVH8ptZDZ'}
-	response = requests.post("https://ascii.p.mashape.com/image2ascii", data = {"format":"color"}, headers=headers)
-	return base64.b64decode(response.json().get("contents").get("cowsay"))
-
 
 if __name__ == "__main__":
 
