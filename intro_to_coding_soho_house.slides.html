@@ -9,7 +9,7 @@
 <meta name="apple-mobile-web-app-capable" content="yes" />
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
 
-<title>python_3_crash_course slides</title>
+<title>intro_to_coding_soho_house slides</title>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
@@ -11830,10 +11830,10 @@ a.anchor-link {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><br>
-<img style='display: block;
-    margin: 0 auto;'src='python_jamaica.png'></p>
-<p><h1 style="text-align: center">Introduction to Python 3</h1></p>
+<p><br></p>
+<p><link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet"></p>
+<p><h1 style="font: font-family: 'Montserrat', sans-serif;"> Soho House Chicago</h1></p>
+<p><h1 style="text-align: center">Let's Learn to Code: Introduction to Python 3</h1></p>
 <p><p style="text-align: center">Slides at: http://bit.ly/pyjamica-intropython</p>
 <br>
 <br>
@@ -11852,8 +11852,8 @@ a.anchor-link {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Today's-Agenda">Today's Agenda<a class="anchor-link" href="#Today's-Agenda">&#182;</a></h3><p>While today won't be a comprehensive Introduction to Python 3, we'll cover the basics of Python 3 including:</p>
-<ul>
+<h3 id="Today's-Agenda">Today's Agenda<a class="anchor-link" href="#Today's-Agenda">&#182;</a></h3><ul>
+<li>What is code?</li>
 <li>A history of Python (or rather, why Python?)</li>
 <li>Examples of Python in use</li>
 <li>Python data structures, syntax, and control flow</li>
@@ -11870,9 +11870,67 @@ a.anchor-link {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
+<h4 id="What-is-code?">What is code?<a class="anchor-link" href="#What-is-code?">&#182;</a></h4><p>When we talk about computer code, we are talking about the written instructions that tell a computer how to do a thing.</p>
+<p>These instructions we call "algorithms".</p>
+<p>For example - what happens when you wake up in the morning?</p>
+
+<pre><code>MAX_RINGS = 4
+
+
+IF ALARM IS RINGING:
+    FOR TIME IN RANGE(1, 3):
+        SNOOZE
+
+
+IF ALARM RINGS &gt; MAX_RINGS:
+    WAKE_UP(SPEED=SLOWLY)
+    SHOWER(TIME=20)  
+    EAT(FOOD=[‘BANANAS’, ‘GRANOLA’, ‘YOGURT’])</code></pre>
+
+</div>
+</div>
+</div></section></section><section><section>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
 <h3 id="Greetings,-I'm-Lorena-Mesa!">Greetings, I'm Lorena Mesa!<a class="anchor-link" href="#Greetings,-I'm-Lorena-Mesa!">&#182;</a></h3><p><br><br><br>
 <img src='bio_slide.png' style='display: block;
     margin: 0 auto;'/></p>
+
+</div>
+</div>
+</div></section></section><section><section>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="As-a-software-engineer,-I-write-programs-('algorithms')-for-(General-Purpose)-computers">As a software engineer, I write programs ('algorithms') for (General Purpose) computers<a class="anchor-link" href="#As-a-software-engineer,-I-write-programs-('algorithms')-for-(General-Purpose)-computers">&#182;</a></h3><p><img src="eniac.jpg" alt="ENIANC"></p>
+<p>ENIAC, a secret WWII project, was the first general purpose digital computer</p>
+
+</div>
+</div>
+</div></section></section><section><section>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Personal-Computer-of-Today">Personal Computer of Today<a class="anchor-link" href="#Personal-Computer-of-Today">&#182;</a></h3><p>The general purpose personal computers of today run using an operating system like: Mac OSX, Linux, Windows</p>
+<p>The operating system is the software, the computer itself is the hardware. Software engineers write the code that makes up the software!</p>
+<p><img src="pc.jpg" alt="PC"></p>
+
+</div>
+</div>
+</div></section><section>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="How-does-the-internet-work?">How does the internet work?<a class="anchor-link" href="#How-does-the-internet-work?">&#182;</a></h3><p><a href="https://www.youtube.com/watch?v=oj7A2YDgIWE"><img src="https://www.img.youtube.com/oj7A2YDgIWE/0.jpg" alt="How does the internet work"></a></p>
 
 </div>
 </div>
@@ -11896,53 +11954,6 @@ a.anchor-link {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Why-should-I-start-with-Python-3?">Why should I start with Python 3?<a class="anchor-link" href="#Why-should-I-start-with-Python-3?">&#182;</a></h3><p>Python 2.7 will be officially supported until 2020 however the only updates you'll see for Python 2.7 includes:</p>
-<ul>
-<li>Minor security fixes</li>
-<li>Support for new OS versions / tool chains</li>
-</ul>
-<p>Want updates? Check out <a href="http://pythonclock.org">Python Clock</a></p>
-<p>Guido at <a href="[https://youtu.be/YgtL4S7Hrwo](Guido PyCon 2016 Keynote">PyCon 2016 keynote</a>
-) said there will be an "official end of Python 2.7 party at PyCon 2020"</p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1">### What&#39;s new in Python 3?</span>
-
-<span class="n">While</span> <span class="n">we</span> <span class="n">won</span><span class="s1">&#39;t review this there are some exciting new developments for Python 3 including:</span>
-<span class="o">-</span> <span class="n">Gradual</span> <span class="n">static</span> <span class="n">typing</span> <span class="n">introduced</span> <span class="n">via</span> <span class="p">[</span><span class="n">mypy</span><span class="p">](</span><span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">mypy</span><span class="o">-</span><span class="n">lang</span><span class="o">.</span><span class="n">org</span><span class="o">/</span><span class="p">)</span> <span class="p">(</span><span class="n">read</span> <span class="p">[</span><span class="n">PEP</span> <span class="mi">484</span><span class="p">](</span><span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">www</span><span class="o">.</span><span class="n">python</span><span class="o">.</span><span class="n">org</span><span class="o">/</span><span class="n">dev</span><span class="o">/</span><span class="n">peps</span><span class="o">/</span><span class="n">pep</span><span class="o">-</span><span class="mi">0484</span><span class="o">/</span><span class="p">))</span>
-<span class="err">```</span>
-<span class="k">def</span> <span class="nf">fib</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
-    <span class="n">a</span><span class="p">,</span> <span class="n">b</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span>
-    <span class="k">while</span> <span class="n">a</span> <span class="o">&lt;</span> <span class="n">n</span><span class="p">:</span>
-        <span class="k">yield</span> <span class="n">a</span>
-        <span class="n">a</span><span class="p">,</span> <span class="n">b</span> <span class="o">=</span> <span class="n">b</span><span class="p">,</span> <span class="n">a</span><span class="o">+</span><span class="n">b</span>
-
-<span class="k">def</span> <span class="nf">fib</span><span class="p">(</span><span class="n">n</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Iterator</span><span class="p">[</span><span class="nb">int</span><span class="p">]:</span>
-    <span class="n">a</span><span class="p">,</span> <span class="n">b</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span>
-    <span class="k">while</span> <span class="n">a</span> <span class="o">&lt;</span> <span class="n">n</span><span class="p">:</span>
-        <span class="k">yield</span> <span class="n">a</span>
-        <span class="n">a</span><span class="p">,</span> <span class="n">b</span> <span class="o">=</span> <span class="n">b</span><span class="p">,</span> <span class="n">a</span><span class="o">+</span><span class="n">b</span>
-<span class="err">```</span>
-<span class="o">-</span> <span class="err">`</span><span class="n">Async</span><span class="err">`</span> <span class="n">support</span> <span class="p">(</span><span class="n">read</span> <span class="p">[</span><span class="n">PEP</span> <span class="mi">482</span><span class="p">](</span><span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">www</span><span class="o">.</span><span class="n">python</span><span class="o">.</span><span class="n">org</span><span class="o">/</span><span class="n">dev</span><span class="o">/</span><span class="n">peps</span><span class="o">/</span><span class="n">pep</span><span class="o">-</span><span class="mi">0482</span><span class="o">/</span><span class="p">))</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-</div></section></section><section><section>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
 <h3 id="Where-is-Python-used?">Where is Python used?<a class="anchor-link" href="#Where-is-Python-used?">&#182;</a></h3><p>Python is used many places, such as:</p>
 <ul>
 <li>Instagram</li>
@@ -11952,6 +11963,23 @@ a.anchor-link {
 <p>Fun Fact: UC @ San Diego Asst Professor of Cognitive Science Philip Guo found that <em>Python is the most common taught languges by computer science departments!</em></p>
 <p>As of in July 2014 <a href="http://cacm.acm.org/blogs/blog-cacm/176450-python-is-now-the-most-popular-introductory-teaching-language-at-top-us-universities/fulltext">8 of the top 10</a> USA computer science departments use Python for their introduction classes</p>
 <p><img src="python_chart.png" alt="python_chart.png"></p>
+
+</div>
+</div>
+</div></section></section><section><section>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Why-should-I-start-with-Python-3?">Why should I start with Python 3?<a class="anchor-link" href="#Why-should-I-start-with-Python-3?">&#182;</a></h3><p>Python 2.7 will be officially supported until 2020 however the only updates you'll see for Python 2.7 includes:</p>
+<ul>
+<li>Minor security fixes</li>
+<li>Support for new OS versions / tool chains</li>
+</ul>
+<p>Want updates? Check out <a href="http://pythonclock.org">Python Clock</a></p>
+<p>Guido at <a href="[https://youtu.be/YgtL4S7Hrwo](Guido PyCon 2016 Keynote">PyCon 2016 keynote</a>
+) said there will be an "official end of Python 2.7 party at PyCon 2020"</p>
 
 </div>
 </div>
